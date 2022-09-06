@@ -25,13 +25,13 @@ public class Dog {
         public String getColor() {
             return color;
         }
-    // @Override
-    // public boolean equals(Dog dogo) {
-    //     return this.toString() == dogo.toString();
-    // }
+    //@Override
+    public boolean equals(Dog dogo) {
+        return this.toString() == dogo.toString();
+    }
     @Override
     public String toString() {
-        return("Hi my name is "+ getName()+ ". My breed,age and color are " + this.getBreed()+"," 
+        return("Hi my name is "+ getName()+ ". My breed, age, and color are " + this.getBreed()+"," 
 +this.getAge()+","+ this.getColor());
     }
     public static void main(String[] args) {
